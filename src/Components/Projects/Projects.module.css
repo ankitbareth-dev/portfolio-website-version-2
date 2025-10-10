@@ -2,11 +2,9 @@
   padding: clamp(60px, 6vw, 100px) clamp(20px, 4vw, 50px);
   background: linear-gradient(to bottom, #1a1a1a, #0e0e0e);
   color: var(--text-color);
-  position: relative;
   text-align: center;
 }
 
-/* Heading */
 .heading {
   font-size: clamp(2rem, 5vw, 2.6rem);
   color: var(--accent-color);
@@ -16,7 +14,6 @@
   text-shadow: 0 0 15px rgba(255, 77, 0, 0.4);
 }
 
-/* Grid */
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -25,7 +22,6 @@
   margin: 0 auto;
 }
 
-/* Card */
 .projectCard {
   background: linear-gradient(145deg, #1c1c1c, #121212);
   border-radius: 16px;
@@ -35,6 +31,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
 }
 
 .projectCard:hover {
@@ -42,7 +39,6 @@
   box-shadow: 0 6px 25px rgba(255, 77, 0, 0.25);
 }
 
-/* Image */
 .projectImage {
   width: 100%;
   height: 180px;
@@ -54,14 +50,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.6s ease;
+  border-radius: 0;
 }
 
 .projectCard:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-/* Info */
 .projectInfo {
   padding: clamp(15px, 3vw, 25px);
   display: flex;
@@ -82,25 +78,25 @@
   margin-bottom: 20px;
 }
 
-/* Buttons */
 .projectLinks {
   display: flex;
   gap: 10px;
   margin-top: auto;
+  flex-wrap: wrap;
 }
 
 .btnPrimary,
-.btnSecondary {
-  padding: 8px 18px;
+.btnSecondary,
+.placeholder {
+  padding: 8px 16px;
   border-radius: 8px;
   font-weight: 600;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 6px;
   text-decoration: none;
-  transition: var(--transition);
   font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
 .btnPrimary {
@@ -114,6 +110,12 @@
   background: transparent;
 }
 
+.placeholder {
+  border: 1px dashed var(--accent-color);
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
 .btnPrimary:hover {
   box-shadow: 0 0 15px rgba(255, 77, 0, 0.5);
   transform: translateY(-3px);
@@ -124,19 +126,183 @@
   border-color: var(--highlight-color);
   transform: translateY(-3px);
 }
+/* Slide Indicators */
+.indicators {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .projectGrid {
-    gap: 20px;
-  }
+.dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
 
-  .projectLinks {
-    flex-direction: column;
-  }
+.activeDot {
+  background: var(--accent-color);
+}
 
-  .btnPrimary,
-  .btnSecondary {
-    text-align: center;
-  }
+/* Preview Modal */
+.previewOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+  padding: 30px;
+}
+
+.previewContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.previewContent img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 77, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.previewContent img:hover {
+  transform: scale(1.02);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.closeBtn:hover {
+  transform: scale(1.1);
+}
+/* .dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+}
+ */
+.dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.active {
+  background: var(--accent-color);
+}
+
+/* Modal Preview */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 10, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 85%;
+}
+
+.previewImage {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Always-visible close button */
+.closeBtn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  z-index: 2500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 77, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.modalControls {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modalControls button {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modalControls button:hover {
+  background: var(--accent-color);
 }
