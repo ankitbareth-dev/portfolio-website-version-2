@@ -1,0 +1,144 @@
+.aboutSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 20px;
+  background: linear-gradient(to bottom, #1a1a1a 0%, #121212 60%, #0e0e0e 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: var(--text-color);
+}
+
+/* ─── Ambient Glow ─────────────────────────────── */
+.bgGlow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 77, 0, 0.15) 0%,
+    transparent 70%
+  );
+  top: -100px;
+  left: -100px;
+  animation: floatGlow 8s ease-in-out infinite alternate;
+  z-index: 0;
+  filter: blur(45px);
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(120px, 80px);
+  }
+}
+
+/* ─── Content Wrapper ─────────────────────────── */
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Heading ─────────────────────────────────── */
+.heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ff4d00, #ffb800, #ff4d00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.divider {
+  width: 80px;
+  height: 3px;
+  background: var(--accent-color);
+  margin: 12px auto 40px;
+  border-radius: 3px;
+  box-shadow: 0 0 12px rgba(255, 77, 0, 0.6);
+}
+
+/* ─── Glass Text Box ──────────────────────────── */
+.textBox {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: left;
+  line-height: 1.8;
+  box-shadow: 0 0 25px rgba(255, 77, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.textBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(255, 77, 0, 0.25);
+}
+
+/* ─── Text Styling ───────────────────────────── */
+.textBox p {
+  margin-bottom: 22px;
+  font-size: 1.1rem;
+  color: rgba(245, 245, 245, 0.9);
+}
+
+.highlight {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* ─── Social Links ───────────────────────────── */
+.socials {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.socialLink {
+  color: var(--accent-color);
+  font-size: 1.7rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.socialLink:hover {
+  color: var(--highlight-color);
+  transform: scale(1.2);
+  text-shadow: 0 0 15px rgba(255, 77, 0, 0.6);
+}
+
+/* ─── Responsive ───────────────────────────── */
+@media screen and (max-width: 768px) {
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .textBox {
+    padding: 25px;
+  }
+
+  .socialLink {
+    font-size: 1.5rem;
+  }
+}

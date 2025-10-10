@@ -1,0 +1,22 @@
+:root {
+  --primary-color: #0e0e0e;
+  --secondary-color: #1a1a1a;
+  --accent-color: #ff4d00;
+  --highlight-color: #ffb800;
+  --text-color: #f5f5f5;
+  --muted-text-color: #a0a0a0;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, #1a1a1a, #0e0e0e);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
