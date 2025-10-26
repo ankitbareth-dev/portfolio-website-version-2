@@ -53,7 +53,7 @@ const About = () => {
 
           <div className={styles.socials}>
             <a
-              href="https://github.com/ankitbareth"
+              href="https://github.com/ankitbareth-dev"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
@@ -61,7 +61,7 @@ const About = () => {
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com/in/ankitbareth"
+              href="https://www.linkedin.com/in/ankit-bareth-64956035b/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
@@ -69,7 +69,7 @@ const About = () => {
               <FaLinkedin />
             </a>
             <a
-              href="https://instagram.com/ankitbareth"
+              href="https://www.instagram.com/ankit_bareth_dev/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
@@ -77,7 +77,7 @@ const About = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://twitter.com/ankitbareth"
+              href="https://x.com/AnkitbarethDev"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}

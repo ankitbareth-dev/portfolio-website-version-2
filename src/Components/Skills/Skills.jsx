@@ -35,7 +35,7 @@ const Skills = () => {
 
       <div className={styles.categories}>
         <div className={styles.category}>
-          <h3>Web Development</h3>
+          <h3>Frontend</h3>
           <div className={styles.skillGrid}>
             {webSkills.map((skill, i) => (
               <div key={i} className={styles.skillCard}>
